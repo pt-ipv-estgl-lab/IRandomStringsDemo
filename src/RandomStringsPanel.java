@@ -61,16 +61,16 @@ public class RandomStringsPanel extends JPanel {
             Random randInt = new Random();
             var fontNum = randInt.nextInt(1, 6); //(int)(5*Math.random()) + 1
             switch (fontNum) {
-                case 1 -> g.setFont(font1);
-                case 2 -> g.setFont(font2);
-                case 3 -> g.setFont(font3);
-                case 4 -> g.setFont(font4);
-                case 5 -> g.setFont(font5);
+                case 1 -> g2.setFont(font1);
+                case 2 -> g2.setFont(font2);
+                case 3 -> g2.setFont(font3);
+                case 4 -> g2.setFont(font4);
+                case 5 -> g2.setFont(font5);
             }
 
             // Set the color to a bright, saturated color, with random hue.
             float hue = (float) Math.random();
-            g.setColor(Color.getHSBColor(hue, 1.0F, 1.0F)); //
+            g2.setColor(Color.getHSBColor(hue, 1.0F, 1.0F)); //
 
             // Select the position of the string, at random.
 
@@ -79,7 +79,7 @@ public class RandomStringsPanel extends JPanel {
 
             // Draw the message.
             System.out.println(x + ", " + y);
-            g.drawString(message, x, y);
+            g2.drawString(message, x, y);
 
         } // end for
     } // end paintComponent()
