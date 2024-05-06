@@ -1,6 +1,7 @@
 import javax.swing.JFrame;
 /**
  * Use a subclass of JPanel (RandomStringsPanel) as a drawing surface.
+ * In this new version, the panel will repaint itself when the user clicks on it.
  */
 
 public class App {
