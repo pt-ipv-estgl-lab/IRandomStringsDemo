@@ -1,4 +1,7 @@
 import javax.swing.JFrame;
+/**
+ * Use a subclass of JPanel (RandomStringsPanel) as a drawing surface.
+ */
 
 public class App {
     public static void main(String[] args) {
