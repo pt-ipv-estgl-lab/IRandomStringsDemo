@@ -1,4 +1,5 @@
 import java.awt.Component;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -12,7 +13,15 @@ public class App {
     public static void main(String[] args) {
         JFrame window = new JFrame("Java!");
         RandomStringsPanel content = new RandomStringsPanel();
-        content.addMouseListener(new RepaintOnClick()); // Register MouseListener 
+        content.addMouseListener(new MouseAdapter() {
+            // Register a mouse listener that is defined by an anonymous subclass
+            // of MouseAdapter. This replaces the RepaintOnClick iner class that was
+            // used in the original version.
+            public void mousePressed(MouseEvent e) {
+                Component source = (Component) e.getSource();
+                source.repaint();
+            }
+        });  
                                                         // with the panel.
         window.setContentPane(content);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -22,45 +31,4 @@ public class App {
         System.out.println("The End!");
     }
 
-    /**
-     * An object of type RepaintOnClick is a MouseListener that
-     * will respond to a mousePressed event by calling the repaint()
-     * method of the source of the event.  That is, a RepaintOnClick
-     * object can be added as a mouse listener to any Component;
-     * when the user clicks that component, the component will be
-     * repainted.
-     */
-    private static class RepaintOnClick implements MouseListener {
-
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            // TODO Auto-generated method stub
-            
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-            // TODO Auto-generated method stub
-            
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-            // TODO Auto-generated method stub
-            
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-            Component source = (Component)e.getSource();
-            source.repaint(); // Call repaint() on the Component that was clicked.
-                
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-            // TODO Auto-generated method stub
-            
-        }
-    }
 }
